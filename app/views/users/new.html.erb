@@ -1,0 +1,67 @@
+<h1>The Gossip Project</h1>
+
+<h2>Create a account</h2>
+
+   <%= form_for @user do |f| %>
+
+    <div class='form-group'>
+      <label>Prén<span class='red'>o</span>m</label><br>
+      <%= f.text_field :first_name, class:'form-control' %>
+    </div>
+
+    <br>
+
+    <div class='form-group'>
+      <label>N<span class='red'>o</span>m</label><br>
+      <%= f.text_field :last_name, class:'form-control' %>
+    </div>
+
+    <br>
+
+    <div class='form-group'>
+      <label>Ville</label><br>
+      <%= f.collection_select :city_id, @cities, :id, :name,{}, class:'form-control' %>
+    </div>
+
+    <br>
+
+    <div class='form-group'>
+      <label>Descripti<span class='red'>o</span>n</label><br>
+      <%= f.text_area :description, class:'form-control' %>
+    </div>
+
+    <br>
+
+    <div class='form-group'>
+      <label>Age</label><br>
+      <%= f.number_field :age, in:18..99, class:'form-control' %>
+    </div>
+
+    <br>   
+
+    <div class='form-group'>
+      <label>Email</label><br>
+      <%= f.email_field :email, class:'form-control' %>
+    </div>
+
+    <br> 
+
+    <div class='form-group'>
+      <label>M<span class='red'>o</span>t de passe</label><br>
+      <%= f.password_field :password, class:'form-control' %>
+    </div>
+
+    <br>
+
+    <div class='form-group'>
+      <label>M<span class='red'>o</span>t de passe</label><br>
+      <%= f.password_field :password_confirmation, class:'form-control' %>
+    </div>
+
+    <br> 
+                        
+    <div class='form-group'>
+      <button type=submit class='btn btn-success'>S'inscrire</button>
+    </div>
+
+  <% end %>

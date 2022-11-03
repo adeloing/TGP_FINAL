@@ -1,0 +1,37 @@
+<h1>Gossip detail</h1>
+<h3>Gossip page n°<%= params["id"] %></h3>
+
+<div class="">
+    <div class="card" style="width: 12rem;">
+        <div class="card-body">
+            <h5 class="card-title">Title: <%= @gossips.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Author: <%= @gossips.user.first_name%></h6>
+            <p class="card-text">Content: <%= @gossips.content %></p>
+            <a href= "<%= edit_gossip_path(@gossips.id) %>" class="btn btn-primary text-decoration-none link-light">Edit</a>
+            <%= link_to "Delete", gossip_path, method: :delete, class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<%= form_tag(comments_path, method: 'post') do %>
+  <%= hidden_field_tag('gossip_id', params[:id] )%>
+  <%= label_tag 'Comment : ' %>
+  <%= text_area_tag 'content', nil %>
+  <br /> <br />
+
+  <%= submit_tag "Comment", class: "btn btn-secondary " %>
+
+
+    <% @comment.each do |comm| %>
+    <article> 
+        <h4 class="desc-title">Comment of <%= comm.user.first_name %> </h4>
+        <p class="desc"><%= comm.content %></p>
+        <div class="show-edit">
+            <%= link_to 'Modifier', edit_comment_path(comm.id), class:'btn btn-secondary', confirm: 'Êtes-vous sûr ?' %>
+            <%= link_to 'Supprimer', comment_path(comm.id), method: 'delete', class:'btn btn-outline-danger'%>
+        </div>
+    </article>         
+    <% end %>
+<% end %>
