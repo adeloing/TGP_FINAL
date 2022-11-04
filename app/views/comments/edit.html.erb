@@ -1,0 +1,12 @@
+<h1>Edit a comment</h1>
+
+
+ <%= form_tag url_for(action: 'update'), method: "put" do %>
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'content', @comment.content %>
+      <br /> <br />
+
+      <%= submit_tag "Edit Comment" %>
+
+<% end %>

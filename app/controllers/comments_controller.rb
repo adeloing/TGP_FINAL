@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user, only: [:create, :edit]
+  before_action :authenticate_user, only: [:create]
+  before_action :user_is_op, only: [:edit, :update, :destroy]
     def new
         @comment = Comment.new
       end
@@ -53,4 +54,14 @@ class CommentsController < ApplicationController
           redirect_to new_session_path
         end
       end
-end
+  
+      def user_is_op
+          puts "****"
+          puts session[:user_id]
+          puts "****"
+          unless session[:user_id] == Comment.find(params[:id]).user.id
+            flash[:danger] = "You cant do that !"
+            redirect_to new_session_path
+          end
+        end
+  end

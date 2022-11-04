@@ -27,8 +27,8 @@
         <h4 class="desc-title">Comment of <%= comm.user.first_name %> </h4>
         <p class="desc"><%= comm.content %></p>
         <div class="show-edit">
-            <%= link_to 'Modifier', edit_comment_path(comm.id), class:'btn btn-secondary', confirm: 'Êtes-vous sûr ?' %>
-            <%= link_to 'Supprimer', comment_path(comm.id), method: 'delete', class:'btn btn-outline-danger'%>
+            <%= link_to 'Modifier', edit_comment_path(comm.id), class:'btn btn-secondary', data: { "turbo-method": :edit } %>
+            <%= link_to 'Supprimer', comment_path(comm.id), class:"btn btn-outline-danger", data: { "turbo-method": :delete } %>
         </div>
     </article>         
     <% end %>
