@@ -1,16 +1,14 @@
-<h1>The Gossip Project</h1>
-<h2>Welcome <%= params["user"] %> !</h2>
-
-   
+<h1>Welcome to The Gossip Project</h1>
+<p></p> 
 <h3>The Gossip Project 's cities :</h3>
-
+<p></p>
 <div class="container-fluid d-flex flex-wrap justify-content-center row xy-3">
     <% @cities.each do |cities| %>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><%= cities.name %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= cities.zip_code %></h6>
-                <a href="/cities/<%= cities.id %>" class="btn btn-primary btn-sm">Goppis of the city</a>
+                <a href="/cities/<%= cities.id %>" class="btn btn-primary btn-sm">Gossips of the city</a>
             </div>
         </div>
     <%end%>

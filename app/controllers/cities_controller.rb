@@ -2,12 +2,14 @@ class CitiesController < ApplicationController
 
       def index
           @cities = City.all
+          @likes = Like.all
         # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
       end
   
       def show
           @cities = City.find(params[:id])
           @gossips_cities = @cities.gossips
+          @likes = Like.all
         # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
       end
   

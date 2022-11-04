@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+    before_action :authenticate_user, only: [:create]
 
     def index
         @likes = Like.all
@@ -14,9 +15,14 @@ class LikesController < ApplicationController
     end
 
     def create
-      # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
-      # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
-      # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
+        @like = Like.new('gossip_id' => params[:gossip_id], user: User.find_by(id: session[:user_id]))
+        if @like.save
+          flash[:success] = "like given !"
+          redirect_to '/'
+        else
+          flash[:notice] = "like not given !"
+          render '/gossips'
+        end
     end
 
     def edit
@@ -34,4 +40,12 @@ class LikesController < ApplicationController
       # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
     end
 
+    private
+
+    def authenticate_user
+      unless session[:user_id]
+        flash[:danger] = "Please log in."
+        redirect_to new_session_path
+      end
+    end
 end

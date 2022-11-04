@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.centered-element{
+    margin: 0 auto;
+}
+
+.content {
+    min-height: calc(100vh - 112px);
+  }
+
+  .footer {
+    height: 56px;
+  }

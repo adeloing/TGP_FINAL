@@ -18,6 +18,8 @@
             <a href="/gossips/<%= gossip.id %>" class="btn btn-primary btn-sm">Details</a>
             <a href="/users/<%= gossip.user.id %>" class="btn btn-secondary btn-sm">Author</a>
             <a href="/cities/<%= gossip.user.city_id %>" class="btn btn-success btn-sm">City</a>
+            <p></p>
+            <p class="card-text"><FONT color="#fcba03"><B><I><U><%= @likes.where(gossip: gossip).count.to_s + " likes !" %></B></I></U></FONT></p>
         </div>
         </div>
     <%end%>

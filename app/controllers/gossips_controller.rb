@@ -5,10 +5,12 @@ class GossipsController < ApplicationController
 
     def index
         @gossips = Gossip.all
+        @likes = Like.all
     end
 
     def show
         @gossips = Gossip.find(params[:id])
+        @likes = Like.all
         @comment = @gossips.comments
     end
 

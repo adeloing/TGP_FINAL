@@ -1,11 +1,9 @@
-<h1>The Gossip Project</h1>
-<h2>Welcome <%= params["user"] %> !</h2>
-
+<h1>Welcome to The Gossip Project</h1>
+<p></p>
     <a href= "<%= new_gossip_path %>" class="btn btn-primary btn-lg text-decoration-none link-light">Create a new gossip !</a>
-
+<p></p>
 <h3>The lasts gossips:</h3>
-
-
+<p></p>
 <div class="container-fluid d-flex flex-wrap justify-content-center row xy-3">
     <% @gossips.each do |gossip| %>
         <div class="card" style="width: 18rem;">
@@ -16,6 +14,8 @@
             <a href="/gossips/<%= gossip.id %>" class="btn btn-primary btn-sm">Details</a>
             <a href="/users/<%= gossip.user.id %>" class="btn btn-secondary btn-sm">Author</a>
             <a href="/cities/<%= gossip.user.city_id %>" class="btn btn-success btn-sm">City</a>
+            <p></p>
+            <p class="card-text"><FONT color="#fcba03"><B><I><U><%= @likes.where(gossip: gossip).count.to_s + " likes !" %></B></I></U></FONT></p>
         </div>
         </div>
     <%end%>
