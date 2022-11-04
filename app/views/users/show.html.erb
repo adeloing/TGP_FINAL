@@ -1,15 +1,21 @@
 <h1>The Gossip Project</h1>
+<p></p>
 <h2>About the author</h2>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="">
-    <div class="card" style="width: 18rem;">
+    <div class="card centered-element" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title"><%= @users.first_name%></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= @users.last_name %></h6>
-            <p class="card-text">Email: <%= @users.email %></p>
-            <p class="card-text">City: <%= @users.city.name %></p>
-            <p class="card-text">Age: <%= @users.age %></p>
-            <p class="card-text">Description: <%= @users.description %></p>
+            <h5 class="card-title"><%= @user.first_name%></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.last_name %></h6>
+            <p class="card-text">Email: <%= @user.email %></p>
+            <p class="card-text">City: <%= @user.city.name %></p>
+            <p class="card-text">Age: <%= @user.age %></p>
+            <p class="card-text">Description: <%= @user.description %></p>
         </div>
     </div>
 </div>

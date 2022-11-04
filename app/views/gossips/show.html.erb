@@ -8,7 +8,7 @@
             <a href= "<%= edit_gossip_path(@gossips.id) %>" class="btn btn-primary text-decoration-none link-light">Edit</a>
             <%= link_to "Delete", gossip_path, method: :delete, class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <p></p>
-            <p class="card-text"><FONT color="#fcba03"><B><I><U><%= @likes.where(gossip: @gossips).count.to_s + " likes !" %></B></I></U></FONT></p>
+            <p class="card-text"><a href="/likes/<%= @gossips.id %>" class="btn btn-danger btn-sm"> Like! </a><FONT color="#fcba03"><B><I><%= " " + @likes.where(gossip: @gossips).count.to_s + " likes !" %></B></I></FONT></p>
         </div>
     </div>
 

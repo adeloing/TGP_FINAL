@@ -15,7 +15,7 @@
             <a href="/users/<%= gossip.user.id %>" class="btn btn-secondary btn-sm">Author</a>
             <a href="/cities/<%= gossip.user.city_id %>" class="btn btn-success btn-sm">City</a>
             <p></p>
-            <p class="card-text"><FONT color="#fcba03"><B><I><U><%= @likes.where(gossip: gossip).count.to_s + " likes !" %></B></I></U></FONT></p>
+            <p class="card-text"><a href="/likes/<%= gossip.id %>" class="btn btn-danger btn-sm"> Like! </a><FONT color="#fcba03"><B><I><%= " " + @likes.where(gossip: gossip).count.to_s + " likes !" %></B></I></FONT></p>
         </div>
         </div>
     <%end%>
