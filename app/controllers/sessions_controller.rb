@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
         # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
         if user && user.authenticate(params[:password_digest])
           session[:user_id] = user.id
+          helpers.remember(user)
           redirect_to "/"
         else
           puts "CA MARCHE PAS !"
@@ -22,7 +23,8 @@ class SessionsController < ApplicationController
 
     def destroy
       puts "**************************"
-      session.delete(:user_id)
+      user = User.find_by(id: session[:user_id])
+      log_out(user)
       redirect_to new_session_path
     end
 end
