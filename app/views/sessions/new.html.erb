@@ -1,15 +1,20 @@
 <h1>The Gossip Project</h1>
+<br />
+<br />
+<br />
+<br />
 <%= form_tag url_for(action: 'create'), method: "post" do %>
 
-  <%= label_tag 'Username' %>
+  <%= label_tag 'Username' %><br />
   <%= text_field_tag 'email', @users.email %>
-  <br /> <br />
-
-  <%= label_tag 'Password' %>
-  <%= text_area_tag 'password_digest', @users.password_digest %>
-  <br /> <br />
-
+  <br />
+  <%= label_tag 'Password' %><br />
+  <%= text_field_tag 'password_digest', @users.password_digest %>
+  <br />
+  <br />
   <%= submit_tag "Login" %>
 
 <% end %>
+
+
 
